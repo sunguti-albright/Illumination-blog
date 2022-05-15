@@ -13,18 +13,23 @@ class Config:
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
 
 
+    @staticmethod
+    def init_app(app):
+        pass
+
+
 class ProdConfig(Config):
-        """
-        Production configuration child class
-            
-            Args:
-                Config: The parent configuration class with General configuration settings
-            """
-        SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    uri = os.getenv('DATABASE_URL')
+    if uri and uri.startswith('postgres://'):
+        uri = uri.replace('postgres://', 'postgresql://', 1)
+        
+        SQLALCHEMY_DATABASE_URI = uri
+DEBUG = True
+
 
 class DevConfig(Config):
          SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://abrighthuman:bright@localhost/blog'
-DEBUG = True
+
 
 config_options={
     'development':DevConfig,

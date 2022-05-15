@@ -9,7 +9,7 @@ from flask.cli import FlaskGroup
 
 
 # Creating app instance
-app = create_app('development')
+app = create_app('production')
 cli = FlaskGroup(app)
 
 # migrate = Migrate(app,db)
