@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{%import "bootstrap/wtf.html" as wtf%}
+
+<!-- Navbar block  -->
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+
+
+<div  class='container' style="background-image: url(https://media.istockphoto.com/photos/blog-light-bulb-sign-picture-id1331943301?b=1&k=20&m=1331943301&s=170667a&w=0&h=8blzipdh9bFJbUtN7Nr4tbgwqnSLXl7icNf2IQp6wO0=); background-repeat: no-repeat; background-size: cover; height: 80vh;  background-position: center;">
+    <h1 style="margin: 5%; text-align: center; font-family: 'Lobster', cursive;">Add a blog</h1>
+    <div class="col-md-6">
+    </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {{wtf.quick_form(blog_form)}}
+                </div>
+        
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
