@@ -5,13 +5,13 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_uploads import UploadSet, configure_uploads, IMAGES
-from flask_mail import Mail
+# from flask_mail import Mail
 
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
 photos = UploadSet('photos', IMAGES)
-mail = Mail()
+# mail = Mail()
 
 
 
@@ -32,7 +32,7 @@ def create_app(config_name):
     db.init_app(app)
     migrate = Migrate(app,db)
     login_manager.init_app(app)
-    mail.init_app(app)
+    # mail.init_app(app)
    
     # configure UploadSet
     configure_uploads(app,photos)
